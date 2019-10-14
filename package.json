@@ -11,11 +11,21 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
+    "@octokit/rest": "^16.33.1",
+    "chalk": "^2.4.2",
+    "debug": "^4.1.1",
+    "listr": "^0.14.3",
+    "lodash": "^4.17.15",
+    "shelljs": "^0.8.3",
     "tslib": "^1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
+    "@types/debug": "^4.1.5",
+    "@types/listr": "^0.14.2",
+    "@types/lodash": "^4.14.144",
     "@types/node": "^10",
+    "@types/shelljs": "^0.8.5",
     "globby": "^10",
     "ts-node": "^8",
     "typescript": "^3.3"
