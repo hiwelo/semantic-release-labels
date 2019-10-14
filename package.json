@@ -1,0 +1,53 @@
+{
+  "name": "semantic-release-labels",
+  "description": "Facilitate the release of NPM package following semantic versioning, based on GitHub Pull Requests labels",
+  "version": "0.0.0",
+  "author": "Damien Senger @hiwelo",
+  "bin": {
+    "semver-labels": "./bin/run"
+  },
+  "bugs": "https://github.com/hiwelo/semantic-release-labels/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@types/node": "^10",
+    "globby": "^10",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/hiwelo/semantic-release-labels",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "semver-labels",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "hiwelo/semantic-release-labels",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
