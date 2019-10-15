@@ -4,9 +4,9 @@ import { SortedCommitList } from './types';
 import { DetailedCommit } from '../git/types';
 import { SEMVER_CATEGORIES } from '../semver';
 
-export const sortByCategories = (list: DetailedCommit[]) => {
+export const sortByCategories = (list: DetailedCommit[]): SortedCommitList => {
   const sortedList = SEMVER_CATEGORIES.map(category => {
-    return compact(list.map(commit => commit.versionBump === category ? commit : false));
+    return compact(list.map(commit => (commit.versionBump === category ? commit : false)));
   });
   const associatedList: SortedCommitList = {};
 

@@ -15,7 +15,7 @@ const OctokitConfig = {
   auth: process.env.GH_TOKEN,
 };
 
-export const setupContext = (() => {
+export const setupContext = ((): void => {
   STORE.owner = process.env.PROJECT_OWNER;
   STORE.repo = process.env.PROJECT_REPO;
 
@@ -25,9 +25,8 @@ export const setupContext = (() => {
 
 export const GitHubContext: OctokitContext = { owner: STORE.owner, repo: STORE.repo };
 
-export const getOctokit = () => {
+export const getOctokit = (): Octokit => {
   if (STORE.octokit === undefined) STORE.octokit = new Octokit({ ...OctokitConfig });
 
   return STORE.octokit;
 };
-

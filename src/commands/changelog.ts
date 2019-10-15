@@ -1,17 +1,18 @@
-import Command from '@oclif/command'
-import chalk from 'chalk';
+import Command from '@oclif/command';
 import Listr from 'listr';
 
 import { getChangelog } from '../utilities/changelog';
 
 export class Changelog extends Command {
-  changelog: string = '';
+  changelog = '';
 
-  async run() {
+  async run(): Promise<void> {
     const tasks = new Listr([
       {
         title: 'Generate Changelog',
-        task: async () => { this.changelog = await getChangelog() },
+        task: async (): Promise<void> => {
+          this.changelog = await getChangelog();
+        },
       },
     ]);
 
