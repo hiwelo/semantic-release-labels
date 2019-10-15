@@ -1,7 +1,6 @@
 import { getPRFromMergeCommit } from './getPRFromMergeCommit';
 import { DetailedCommit } from './types';
 import { getVersionBumpForPR, SEMVER_BUMP_OTHER } from '../semver';
-import { VersionBump } from '../semver/types';
 
 export const getCommitInfo = async (commitMessage: string): Promise<DetailedCommit> => {
   const [hash, ...content] = commitMessage.split(' ');

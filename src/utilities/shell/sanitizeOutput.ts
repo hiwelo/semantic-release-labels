@@ -2,13 +2,13 @@ import { compact, filter, join, split } from 'lodash';
 import { ShellString } from 'shelljs';
 
 import { SHELL_EXEC_RETURN_ARRAY, SHELL_EXEC_RETURN_STRING } from './constants';
-import { ShellResults } from './types';
+import { ShellResults, ShellResult } from './types';
 
 export const sanitizeOutput = (
   { stdout }: ShellString,
   formatOutput: ShellResults = 'string',
   additionalFilters: string[] = [],
-) => {
+): ShellResult => {
   const outputedLines = compact(split(stdout, '\n'));
   let lines: string[];
 
@@ -17,7 +17,7 @@ export const sanitizeOutput = (
   lines = filter(lines, line => !line.startsWith('Done in '));
 
   if (additionalFilters.length) {
-    additionalFilters.forEach(str => lines = filter(lines, line => !line.startsWith(str)));
+    additionalFilters.forEach(str => (lines = filter(lines, line => !line.startsWith(str))));
   }
 
   switch (formatOutput) {
