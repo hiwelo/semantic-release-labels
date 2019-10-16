@@ -10,3 +10,10 @@ export interface ChangelogCategories {
   patch: string;
   other: string;
 }
+
+export interface CommitAuthor {
+  login?: string;
+  url?: string;
+}
+
+export type CommitAuthors = CommitAuthor[];

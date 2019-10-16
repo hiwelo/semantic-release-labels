@@ -5,6 +5,12 @@ export interface DetailedCommit {
   message: string;
   mergeCommit?: boolean;
   versionBump?: VersionBump;
+  author: {
+    name?: string;
+    email?: string;
+    login?: string;
+    url?: string;
+  }
 }
 
 export type PullRequestID = number;
